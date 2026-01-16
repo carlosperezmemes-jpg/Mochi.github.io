@@ -1,107 +1,182 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Tienda Online</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #111;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .product {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .product img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-        .product h3 {
-            margin: 10px 0;
-        }
-        .price {
-            color: green;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Mochi Store</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff7c2;
+}
+
+/* HEADER */
+header {
+    background: #ffe066;
+    padding: 20px;
+    text-align: center;
+}
+header img {
+    max-width: 120px;
+}
+header h1 {
+    margin: 10px 0 0;
+}
+
+/* PRODUCTOS */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.product {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.price {
+    color: #2ecc71;
+    font-size: 22px;
+    font-weight: bold;
+}
+.btn {
+    display: block;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.add {
+    background: #f1c40f;
+}
+.buy {
+    background: #3483fa;
+    color: white;
+}
+.whatsapp {
+    background: #25d366;
+    color: white;
+}
+
+/* CARRITO */
+#cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 10px rgba(0,0,0,.2);
+    padding: 15px;
+    overflow-y: auto;
+}
+#cart h2 {
+    margin-top: 0;
+}
+.cart-item {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background: #ffe066;
+    text-align: center;
+    padding: 15px;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>🛒 Mi Tienda Online</h1>
-    <p>Compra fácil y rápido</p>
+<img src="logo.png" alt="Logo">
+<h1>Mochi Store</h1>
+<p>Compra fácil • Pago seguro • Envíos a todo Chile</p>
 </header>
 
 <div class="container">
 
-    <div class="product">
-        <img src="https://via.placeholder.com/300">
-        <h3>Licuadora fit</h3>
-        <p class="price">$25.000</p>
-        <a class="btn" href="https://wa.me/569XXXXXXXX?text=Hola%20quiero%20comprar%20los%20auriculares">
-            Comprar
-        </a>
-    </div>
+<div class="product">
+<img src="https://via.placeholder.com/300">
+<h3>Auriculares Bluetooth</h3>
+<p class="price" data-price="15000">$15.000</p>
+<button class="btn add" onclick="addToCart('Auriculares Bluetooth',15000)">🛒 Agregar al carrito</button>
+<a class="btn buy" href="TU_LINK_DE_PAGO" target="_blank">💳 Comprar ahora</a>
+<a class="btn whatsapp" href="https://wa.me/TU_NUMERO_WHATSAPP?text=Hola%20quiero%20los%20auriculares">📲 WhatsApp</a>
+</div>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/300">
-        <h3>Smartwatch</h3>
-        <p class="price">$25.000</p>
-        <a class="btn" href="https://wa.me/569XXXXXXXX?text=Hola%20quiero%20comprar%20el%20smartwatch">
-            Comprar
-        </a>
-    </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/300">
-        <h3>Cargador Rápido</h3>
-        <p class="price">$10.000</p>
-        <a class="btn" href="https://wa.me/569XXXXXXXX?text=Hola%20quiero%20comprar%20el%20cargador">
-            Comprar
-        </a>
-    </div>
+<div class="product">
+<img src="https://via.placeholder.com/300">
+<h3>Smartwatch</h3>
+<p class="price" data-price="25000">$25.000</p>
+<button class="btn add" onclick="addToCart('Smartwatch',25000)">🛒 Agregar al carrito</button>
+<a class="btn buy" href="TU_LINK_DE_PAGO" target="_blank">💳 Comprar ahora</a>
+<a class="btn whatsapp" href="https://wa.me/TU_NUMERO_WHATSAPP?text=Hola%20quiero%20el%20smartwatch">📲 WhatsApp</a>
+</div>
 
 </div>
 
+<!-- CARRITO -->
+<div id="cart">
+<h2>🛒 Carrito</h2>
+<div id="cartItems"></div>
+<p class="total">Total: $<span id="total">0</span></p>
+
+<a class="btn buy" href="TU_LINK_DE_PAGO" target="_blank">💳 Pagar carrito</a>
+
+<a class="btn whatsapp" id="whatsLink" target="_blank">📲 Enviar pedido</a>
+</div>
+
 <footer>
-    <p>📦 Envíos a todo Chile</p>
+<p>🔒 Pagos protegidos • 📦 Entregas rápidas</p>
 </footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name, price});
+    total += price;
+    renderCart();
+}
+
+function renderCart() {
+    const items = document.getElementById("cartItems");
+    items.innerHTML = "";
+    cart.forEach(p => {
+        items.innerHTML += `<div class="cart-item">${p.name} - $${p.price}</div>`;
+    });
+    document.getElementById("total").innerText = total;
+
+    let msg = "Hola, quiero comprar:%0A";
+    cart.forEach(p => msg += `- ${p.name} ($${p.price})%0A`);
+    msg += `Total: $${total}`;
+
+    document.getElementById("whatsLink").href =
+        `https://wa.me/TU_NUMERO_WHATSAPP?text=${msg}`;
+}
+</script>
 
 </body>
 </html>
+
+
 
